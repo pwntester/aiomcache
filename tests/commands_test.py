@@ -1,7 +1,6 @@
 import asyncio
 import pytest
 from unittest import mock
-from unittest.mock import MagicMock
 
 from aiomcache.exceptions import ClientException, ValidationException
 
@@ -12,10 +11,7 @@ async def test_version(mcache):
     stats = await mcache.stats()
     assert version == stats[b'version']
 
-    with mock.patch.object(
-            mcache,
-            '_execute_simple_command',
-            new_callable=MagicMock) as patched:
+    with mock.patch.object(mcache, '_execute_simple_command') as patched:
         fut = asyncio.Future()
         fut.set_result(b'SERVER_ERROR error\r\n')
         patched.return_value = fut

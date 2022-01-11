@@ -29,7 +29,7 @@ def read(f):
 setup(name='aiomcache',
       version=version,
       description=('Minimal pure python memcached client'),
-      long_description='\n\n'.join((read('README.rst'), read('CHANGES.rst'))),
+      long_description='\n\n'.join((read('README.rst'), read('CHANGES.txt'))),
       classifiers=[
           'License :: OSI Approved :: BSD License',
           'Intended Audience :: Developers',
